@@ -1,0 +1,65 @@
+
+
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">管理员列表</strong> / <small>Admin</small></div>
+    </div>
+
+    <div class="am-g">
+      <div class="am-u-md-6 am-cf">
+        <div class="am-fl am-cf">
+          <div class="am-btn-toolbar am-fl">
+            <div class="am-btn-group am-btn-group-xs">
+              <button type="button" class="am-btn am-btn-default" ui-sref="AdminAdd"><span class="am-icon-plus"></span> 新增</button>
+              <button ng-click="saveAdminId()" type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="am-u-md-3 am-cf">
+        <div class="am-fr">
+          <div class="am-input-group am-input-group-sm">
+            <input ng-model="adminname" type="text" class="am-form-field" ng-value='adminname'>
+                <span class="am-input-group-btn">
+                  <button ui-sref="AdminName({adminName:adminname})" class="am-btn am-btn-default" type="button">搜索</button>
+                </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="am-g">
+      <div class="am-u-sm-12">
+        <form class="am-form">
+          <table class="am-table am-table-striped am-table-hover table-main">
+            <thead>
+              <tr>
+                <th class="table-check"><input type="checkbox" ng-click="check_box()"/></th><th class="table-id">ID</th><th class="table-title">管理员</th><th class="table-time">创建时间</th><th class="table-set">操作</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in admin_list">
+              <td><input type="checkbox" ng-init="item.admin_checked=false" ng-checked="item.admin_checked" ng-model="item.admin_checked"/></td>
+              <td>{{item.admin_id}}</td>
+              <td>{{item.admin_name}}</td>
+              <td>{{item.admin_time}}</td>
+              <td>
+                <div class="am-btn-toolbar">
+                  <div class="am-btn-group am-btn-group-xs">
+                    <button class="am-btn am-btn-default am-btn-xs am-text-secondary" ui-sref="AdminEdit({'adminId':item.admin_id})"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger" ng-click="deleteAdmin(item.admin_id)"><span class="am-icon-trash-o"></span> 删除</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+          <div class="am-cf">
+            <ul class="am-pagination am-fr admin-content-pagination" uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="bigTotalItems" max-size="maxSize" ng-change="pageChanged()"></ul>
+          </div>
+      <hr />
+    </form>
+  </div>
+
+</div>

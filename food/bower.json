@@ -1,0 +1,23 @@
+{
+  "name": "food",
+  "authors": [
+    "AlanScott <dancefunk@sina.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#1.4.6",
+    "angular-ui-router": "0.2.11",
+    "angular-cookies": "1.2.9"
+  }
+}

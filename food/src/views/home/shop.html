@@ -1,0 +1,41 @@
+<style>
+.shop-right{
+	margin-right: 20px;
+}
+.shop{
+	display: block;
+}
+.hide{
+	display: none;
+}
+</style>
+<ul class="breadnav clearfix">
+			<li class="bnav-item"><a ui-sref="home">首页</a></li>
+			<li class="bnav-item">&lt;</li>
+			<li class="bnav-item"><a ui-sref="Shop">店面展示</a></li>
+			<li class="bnav-item" ng-class="scate_id==item.scate_id?'shop':'hide'" ng-repeat="item in shop_cate">&lt;</li>
+			<li class="bnav-item" ng-class="scate_id==item.scate_id?'shop':'hide'" ng-repeat="item in shop_cate"><a href="#">{{item.scate_name}}</a></li>
+		</ul>
+		<div class="clearfix table-wrap" id="tab-span">
+			<span ng-class="scate_id==item.scate_id?'table-active':''" class="table-item" ng-repeat="item in shop_cate" ui-sref="shopCate({scate_id:item.scate_id})">{{item.scate_name}}</span>
+			<div class="search clearfix">
+				<input ng-model='shopname' ng-value="shopName" class="inp-txt" type="text" name="address" value="输入关键字" 
+				onfocus="if(this.value=='输入关键字'){this.value=''};this.style.color='black';"
+				onblur="if(this.value==''||this.value=='输入关键字'){this.value='输入关键字';this.style.color='gray';}" />
+				<input class="inp-btn" type="button" name="" id="" value="搜索" ui-sref="shopName({shopName:shopname})"/>
+			</div>
+		</div>
+		<div id="table-div">
+			<div class="table-pic table-show clearfix">
+				<a href="shop-con.html" class="shop-wrap shop-right" ng-repeat="item in shop_list">
+					<span class="shop-pic">
+						<img src="{{item.shop_img}}" alt="" />
+					</span>
+					<p class="shop-tit">{{item.shop_name}}</p>
+				</a>
+				
+			</div>
+			<div style="text-align:center;">
+				<ul uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="bigTotalItems" max-size="maxSize" ng-change="pageChanged()"></ul>
+			</div>
+		</div>

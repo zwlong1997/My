@@ -1,0 +1,19 @@
+<ul class="breadnav clearfix">
+	<li class="bnav-item">
+		<a ui-sref="home">首页</a>
+	</li>
+	<li class="bnav-item">&lt;</li>
+	<li class="bnav-item">
+		<a ui-sref="newList">新闻资讯</a>
+	</li>
+	<li class="bnav-item">&lt;</li>
+	<li class="bnav-item">
+		<a href="javascript:;">{{new_detail.art_title}}</a>
+	</li>
+</ul>
+
+<div class="news-conwrap">
+	<h1 class="news-contit">{{new_detail.art_title}}</h1>
+	<div ng-bind-html="new_detail.art_content"></div>
+	<a ui-sref="newList" class="shop-icon">返回列表页</a>
+</div>

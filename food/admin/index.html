@@ -1,0 +1,74 @@
+<!doctype html>
+<html class="no-js" ng-app="food_admin">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Amaze后台管理系统模板HTML首页 - 源码之家</title>
+  <meta name="description" content="这是一个 index 页面">
+  <meta name="keywords" content="index">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="icon" type="image/png" href="../assets/admin/i/favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="../assets/admin/i/app-icon72x72@2x.png">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+  <link rel="stylesheet" href="../assets/admin/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="../assets/admin/css/admin.css">
+  <link rel="stylesheet" href="../assets/vendor/bootstrap.min.css" />
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+<header ng-show="displayHeader" class="am-topbar admin-header"  ng-include="'../src/views/admin/header.html'"></header>
+
+<div class="am-cf admin-main">
+  <!-- sidebar start -->
+  <div class="admin-sidebar" ng-show="displayMenu" ng-include="'../src/views/admin/menu.html'"></div>
+  <!-- sidebar end -->
+
+  <!-- content start -->
+  <div class="admin-content" ui-view></div>
+  <!-- content end -->
+
+</div>
+
+<footer ng-include="'../src/views/admin/footer.html'"></footer>
+
+<!--[if lt IE 9]>
+<script src="../assets/admin/js/jquery1.11.1.min.js"></script>
+<script src="../assets/admin/js/modernizr.js"></script>
+<script src="../assets/admin/js/polyfill/rem.min.js"></script>
+<script src="../assets/admin/js/polyfill/respond.min.js"></script>
+<script src="../assets/admin/js/amazeui.legacy.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="../assets/admin/js/jquery.min.js"></script>
+<script src="../assets/admin/js/amazeui.min.js"></script>
+<!--<![endif]-->
+<script src="../assets/admin/js/app.js"></script>
+</body>
+</html>
+<script src="../assets/vendor/angular/angular.min.js"></script>
+<script src="../assets/vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="../assets/vendor/angular-ui-bootstrap.js"></script>
+<script src="../assets/vendor/angular-sanitize.min.js"></script>
+<script src="../assets/vendor/ng-file-upload/ng-file-upload.min.js"></script>
+<script src="../assets/vendor/ng-file-upload/ng-file-upload-shim.min.js"></script>
+<script src="../assets/vendor/angular-cookies.min.js"></script>
+<script src="../src/app-admin.js"></script>
+<script src="../src/services/check-admin.js"></script>
+<script src="../src/services/page-service-admin.js"></script>
+<script src="../src/routers/router-admin.js"></script>
+<script src="../src/controllers/admin/MainController.js"></script>
+<script src="../src/controllers/admin/FcateController.js"></script>
+<script src="../src/controllers/admin/FoodController.js"></script>
+<script src="../src/controllers/admin/AdminController.js"></script>
+<script src="../src/controllers/admin/ScateController.js"></script>
+<script src="../src/controllers/admin/ShopController.js"></script>
+<script src="../src/controllers/admin/ArtController.js"></script>
+<script src="../src/controllers/admin/CtcController.js"></script>
+<script src="../src/controllers/admin/NoticeController.js"></script>

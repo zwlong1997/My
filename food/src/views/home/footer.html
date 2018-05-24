@@ -1,0 +1,13 @@
+<div class="foot" ng-controller="footerController">
+	<div class="foot-wrap">
+		<p class="foot-tit">友情链接</p>
+		<ul class="foot-link clearfix">
+			<li class="foot-pic" ng-repeat="item in homeLink">
+				<a href="{{item.link_url}}"><img src="{{item.link_img}}"/></a>
+			</li>
+		</ul>
+		<div class="copyright">
+			<p ng-repeat="item in homeConf">{{item.conf_title_zh}}：{{item.conf_value}}</p>
+		</div>
+	</div>
+</div>

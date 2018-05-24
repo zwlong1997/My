@@ -1,0 +1,160 @@
+<style>
+	.foot{
+		padding-top:150px;
+		margin:0;
+	}
+	.message{
+		margin-top: 100px;
+		width: 100%;
+		background: #533336;
+		padding: 100px;
+	}
+	.message h1{
+		text-align: center;
+		font-weight: bold;
+		color: #fff;
+	}
+	.message label{
+		color: #fff;
+	}
+	.message table{
+		width:60%;
+		margin:0 auto;
+		border-radius: 5px;
+	}
+	.message table tr td:first-child{
+		text-align: right;
+	}
+	.message input[type="text"]{
+		width: 100%;
+		border: 1px solid #ccc;
+		margin:10px;
+		height: 35px;
+		transition: all .3s ease-in-out;
+		text-indent: 10px;
+		border-radius: 5px;
+	}
+	.message input[type="text"]:focus{
+		box-shadow: 0 0 5px skyblue;
+		border-color: skyblue;
+	}
+	.message textarea{
+		width: 100%;
+		border: 1px solid #ccc;
+		margin:10px;
+		transition: all .3s ease-in-out;
+		text-indent: 10px;
+		border-radius: 5px;
+	}
+	.message textarea:focus{
+		box-shadow: 0 0 5px skyblue;
+		border-color: skyblue;
+	}
+	.message input[type="button"]{
+		width: 100px;
+		height: 35px;
+		border-radius: 5px;
+		text-align: center;
+		color: #000;
+	}
+	.message_list{
+		width: 100%;
+		margin: 50px 0;
+	}
+	.message_list table{
+		width:60%;
+		margin:0 auto;
+		border: 1px solid #ccc;
+	}
+	.message_list table tr:first-child{
+		text-align: center;
+		font-weight: bold;
+	}
+	.message_list table tr{
+		height: 35px;
+	}
+	.message_list table td{
+		padding:10px;
+		border: 1px solid #f0f0f0;
+	}
+	.message_list table td:nth-child(odd){
+		background: #ccc;
+	}
+	.message_list table td:nth-child(even){
+		background: #e0e0e0;
+	}
+</style>
+<ul class="breadnav clearfix">
+	<li class="bnav-item">
+		<a href="index.html">首页</a>
+	</li>
+	<li class="bnav-item">&lt;</li>
+	<li class="bnav-item">
+		<a href="about-us.html">关于我们</a>
+	</li>
+</ul>
+
+<div class="about-wrap">
+	<dl ng-repeat="item in about_shop" class="about-dl clearfix">
+		<dt class="about-pic">
+			<img src="{{item.shop_img}}" />
+		</dt>
+		<dd class="about-txt">
+			<h3 class="about-h">{{item.shop_name}}</h3>
+			<p class="about-p">电话：{{item.shop_phone}}</p>
+			<p class="about-p">传真：{{item.shop_fax}}</p>
+			<p class="about-p">邮编：{{item.shop_region}}</p>
+			<p class="about-p">地址：{{item.shop_address}}</p>
+		</dd>
+	</dl>
+
+	<p class="about-p2">全国加盟热线及邮箱</p>
+	<p class="about-p2">{{about_conf[0].conf_value}}</p>
+	<p class="about-p2">E-mail:{{about_conf[1].conf_value}}</p>
+</div>
+
+	
+
+	<div class="message">
+			<h1>留言板</h1>
+			<form>
+				<table>
+					<tr>
+						<td><label for="message_title">留言标题</label></td>
+						<td><input type="text" id="message_title" ng-model="ctc.ctc_title"></td>
+					</tr>
+					<tr>
+						<td><label for="message_name">姓名</label></td>
+						<td><input type="text" id="message_name" ng-model="ctc.ctc_name"></td>
+					</tr>
+					<tr>
+						<td><label for="message_content">内容</label></td>
+						<td><textarea name="message_content" id="message_content" cols="30" rows="10" ng-model="ctc.ctc_content"></textarea></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<input type="button" value="提交" ng-click="saveForm()">
+						</td>
+					</tr>
+				</table>
+			</form>
+	</div>
+	
+	<div class="message_list">
+		<table>
+			<tr>
+				<td>id</td>
+				<td>标题</td>
+				<td>姓名</td>
+				<td>时间</td>
+				<td>内容</td>
+			</tr>
+			<tr ng-repeat="item in ctc_list">
+				<td>{{item.contact_id}}</td>
+				<td>{{item.contact_title}}</td>
+				<td>{{item.contact_name}}</td>
+				<td>{{item.contact_time*1000|date:"yyyy-mm-dd"}}</td>
+				<td>{{item.contact_content}}</td>
+			</tr>
+		</table>
+	</div>

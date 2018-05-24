@@ -1,0 +1,69 @@
+<div class="am-cf am-padding">
+  <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">添加店面</strong> / <small>Personal information</small></div>
+</div>
+
+<hr/>
+
+<div class="am-g">
+
+  <div class="am-u-sm-12 am-u-md-4 am-u-md-push-8">
+    <div class="am-panel am-panel-default">
+      <div class="am-panel-bd">
+        <div class="am-g">
+          <div class="am-u-md-6">
+            <img class="am-img-circle am-img-thumbnail" src="{{shop.shop_img}}" alt=""/>
+          </div>
+          <div class="am-u-md-6">
+              <div class="am-form-group">
+                <img  class="img-responsive"/>
+                <div class="button" ng-change="uploadImg()" ngf-select="" ngf-pattern="'image/*'" ngf-multiple="false" ng-model="shop.shop_img">
+                  <button type="button" class="am-btn am-btn-primary am-btn-xs">选择文件</button>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="am-u-sm-12 am-u-md-8 am-u-md-pull-4">
+    <form class="am-form am-form-horizontal" ng-submit="saveForm()">
+      <div class="am-form-group">
+        <label for="shop_name" class="am-u-sm-3 am-form-label">店面名称</label>
+        <div class="am-u-sm-9">
+          <input type="text" ng-model="shop.shop_name" id="shop_name" placeholder="店面名称" required>
+        </div>
+      </div>
+
+      <div class="am-form-group">
+        <label for="shop_phone" class="am-u-sm-3 am-form-label">热线</label>
+        <div class="am-u-sm-9">
+          <input type="text" id="shop_phone" ng-model="shop.shop_phone" placeholder="输入你的热线">
+        </div>
+      </div>
+
+      <div class="am-form-group">
+        <label class="am-u-sm-3 am-form-label">所属分类</label>
+        <div class="am-u-sm-9">
+          <select ng-model="shop.scate_id" required>
+            <option value="">请选择</option>
+            <option ng-repeat="item in shop_cate" value="{{item.scate_id}}">{{item.scate_name}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="am-form-group">
+        <label for="shop_fax" class="am-u-sm-3 am-form-label">传真</label>
+        <div class="am-u-sm-9">
+          <input type="text" id="shop_fax" ng-model="shop.shop_fax" placeholder="输入传真">
+        </div>
+      </div>
+
+      <div class="am-form-group">
+        <div class="am-u-sm-9 am-u-sm-push-3">
+          <button  type="submit" class="am-btn am-btn-primary">保存修改</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

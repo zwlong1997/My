@@ -1,0 +1,68 @@
+<div class="am-cf am-padding">
+  <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">首页</strong> / <small>一些常用模块</small></div>
+</div>
+
+<ul class="am-avg-sm-1 am-avg-md-4 am-margin am-padding am-text-center admin-content-list ">
+  <li><a href="#" class="am-text-success"><span class="am-icon-btn am-icon-file-text"></span><br/>食品总数<br/>{{count_data.food_count}}</a></li>
+  <li><a href="#" class="am-text-warning"><span class="am-icon-btn am-icon-briefcase"></span><br/>店面总数<br/>{{count_data.shop_count}}</a></li>
+  <li><a href="#" class="am-text-danger"><span class="am-icon-btn am-icon-recycle"></span><br/>文章总数<br/>{{count_data.article_count}}</a></li>
+  <li><a href="#" class="am-text-secondary"><span class="am-icon-btn am-icon-user-md"></span><br/>留言总数<br/>{{count_data.contact_count}}</a></li>
+</ul>
+
+<div class="am-g">
+  <div class="am-u-sm-12">
+    <table class="am-table am-table-bd am-table-striped admin-content-table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>管理员</th>
+        <th>公告标题</th>
+        <th>公告时间</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="item in notice_list">
+        <td>{{item.notice_id}}</td>
+        <td>{{item.admin_name}}</td>
+        <td><a href="#">{{item.notice_title}}</a></td>
+        <td>{{item.notice_time|date:'yyyy-MM-dd HH'}}</td>
+        <td>
+          <a class="am-icon-bars" href="#">查看</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="am-g">
+  <div class="am-u-md-12">
+    <div class="am-panel am-panel-default">
+      <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-3'}">最近留言<span class="am-icon-chevron-down am-fr" ></span></div>
+      <div class="am-panel-bd am-collapse am-in am-cf" id="collapse-panel-3">
+        <ul class="am-comments-list admin-content-comment">
+
+          <li ng-repeat="item in contact_list" class="am-comment">
+            <a href="#">
+              <img src="https://dummyimage.com/48x48/000/fff" alt="" class="am-comment-avatar" width="48" height="48">
+            </a>
+            <div class="am-comment-main">
+              <header class="am-comment-hd">
+                <div class="am-comment-meta">
+                  <a href="#" class="am-comment-author">{{item.contact_title}}</a>
+                  留言于 <time>{{item.contact_time|date:'yyyy-MM-dd'}}</time>
+                </div>
+              </header>
+              <div class="am-comment-bd">
+                <p ng-bind-html="item.contact_content"></p>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+        <ul class="am-pagination am-fr admin-content-pagination" uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="bigTotalItems" max-size="maxSize" ng-change="pageChanged()"></ul>
+      </div>
+    </div>
+  </div>
+</div>

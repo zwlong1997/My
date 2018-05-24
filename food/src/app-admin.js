@@ -1,0 +1,1 @@
+var food_admin = angular.module('food_admin', ['ui.router', 'ngSanitize','ui.bootstrap','ngFileUpload','ngCookies']);

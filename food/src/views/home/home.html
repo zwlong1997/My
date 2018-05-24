@@ -1,0 +1,52 @@
+<style>
+	#newfood-table ul li{
+		margin-right: 15px;
+	}
+	#newfood-table ul li:nth-child(4n){
+		margin-right: 0;
+	}
+</style>
+<div ng-controller="homeController">
+<div class="new-wrap">
+	<p class="newfood-tit">新品推荐</p>
+	<input type="radio" id="food" name="food" checked>
+	<input type="radio" id="food2" name="food">
+	<input type="radio" id="food3" name="food">
+	<div class="newfood-box clearfix" id="newfood-table">
+
+		<ul class="newfood-wrap clearfix" ng-repeat="item in home_food">
+			<li style="background:url('{{value.food_img}}')" class="newfood-item " ng-repeat="value in item" >
+				<a href="meishi-con.html" class="newfood-p1">{{value.food_name}}</a>
+			</li>
+		</ul>
+	</div>
+	<div class="clearfix" id="newfood-span">
+		<label for="food" ></label>
+		<label for="food2"></label>
+		<label for="food3"></label>
+	</div>
+</div>
+	<div class="company-wrap">
+		<p class="company-tit">{{about.art_title}}</p>
+		<dl class="clearfix company-dl">
+			<dt class="company-dt">
+				<img src="{{about.art_img}}"/>
+			</dt>
+			<dd class="company-dd" ng-bind-html="about.art_content"></dd>
+		</dl>
+	</div>
+	<div class="news-wrap">
+		<p class="news-tit">新闻资讯</p>
+		<dl class="clearfix news-dl">
+			<dt class="news-dt">
+				<img src="{{home_hot.art_img}}"/>
+			</dt>
+			<dd class="news-dd">
+				<a ng-repeat="item in home_article" ui-sref="newDetail({art_id:item.art_id})" class="news-link clearfix">
+					<p class="link-tit">{{item.art_title}}</p>
+					<p class="link-time">{{item.art_time*1000|date:'yyyy-MM-dd'}}</p>
+				</a>
+			</dd>
+		</dl>
+	</div>
+</div>

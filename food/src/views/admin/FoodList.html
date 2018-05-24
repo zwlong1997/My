@@ -1,0 +1,79 @@
+
+
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">食品管理</strong> / <small>Table</small></div>
+    </div>
+
+    <div class="am-g">
+      <div class="am-u-md-6 am-cf">
+        <div class="am-fl am-cf">
+          <div class="am-btn-toolbar am-fl">
+            <div class="am-btn-group am-btn-group-xs">
+              <button type="button" class="am-btn am-btn-default" ui-sref="FoodAdd"><span class="am-icon-plus"></span> 新增</button>
+              <button ng-click="saveFoodId()" type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
+            </div>
+
+            <div class="am-form-group am-margin-left am-fl">
+              <select ng-model="FcateId" ng-change="getFcate()" ng-controller="FoodCheck">
+                <option value="">所有类别</option>
+                <option value="{{item.fcate_id}}" ng-repeat="item in food_cate">{{item.fcate_name}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="am-u-md-3 am-cf">
+        <div class="am-fr">
+          <div class="am-input-group am-input-group-sm">
+            <input type="text" class="am-form-field" ng-model='foodname' ng-value='foodname'>
+                <span class="am-input-group-btn">
+                  <button class="am-btn am-btn-default" type="button" ui-sref="FoodName({'FoodName':foodname})">搜索</button>
+                </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="am-g">
+      <div class="am-u-sm-12">
+        <form class="am-form">
+          <table class="am-table am-table-striped am-table-hover table-main">
+            <thead>
+              <tr>
+                <th class="table-check"><input type="checkbox" ng-click="check_box()"/></th>
+                <th class="table-id">ID</th>
+                <th class="table-title">食品名称</th>
+                <th class="table-type">食品分类</th>
+                <th class="table-author">价格</th>
+                <th class="table-date">添加时间</th>
+                <th class="table-set">操作</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in food_list">
+              <td><input type="checkbox" ng-init="item.food_checked=false" ng-checked="item.food_checked" ng-model="item.food_checked" /></td>
+              <td>{{item.food_id}}</td>
+              <td>{{item.food_name}}</td>
+              <td>{{item.fcate_name}}</td>
+              <td>{{item.food_price}}</td>
+              <td>{{item.food_time*1000|date:'yyyy-MM-dd'}}</td>
+              <td>
+                <div class="am-btn-toolbar">
+                  <div class="am-btn-group am-btn-group-xs">
+                    <button class="am-btn am-btn-default am-btn-xs am-text-secondary" ui-sref="FoodEdit({'foodId':item.food_id})"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                    <button class="am-btn am-btn-default am-btn-xs am-text-danger" ng-click="deleteFood(item.food_id)"><span class="am-icon-trash-o"></span> 删除</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+          <div class="am-cf">
+            <ul class="am-pagination am-fr admin-content-pagination" uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="bigTotalItems" max-size="maxSize" ng-change="pageChanged()"></ul>
+          </div>
+      <hr />
+    </form>
+  </div>
+
+</div>
